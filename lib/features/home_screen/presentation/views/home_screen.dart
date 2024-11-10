@@ -2,8 +2,7 @@ import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/style.dart';
 import 'package:bookly/features/home_screen/presentation/views/widgets/best_seller_list_view.dart';
 import 'package:bookly/features/home_screen/presentation/views/widgets/custom_appbar.dart';
-import 'package:bookly/features/home_screen/presentation/views/widgets/custom_list_view_item.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bookly/features/home_screen/presentation/views/widgets/list_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -27,7 +26,7 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ListViewItem(),
+                        ListViewBody(),
                         SizedBox(height: 50),
                         Text(
                           'Best Seller',

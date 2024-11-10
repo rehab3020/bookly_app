@@ -13,61 +13,64 @@ class BestSellerItemListView extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       padding: EdgeInsets.zero,
-      itemBuilder: (context, index) => Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width * 0.25,
-            height: MediaQuery.of(context).size.height * 0.18,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+      itemBuilder: (context, index) => GestureDetector(
+        onTap: () => Navigator.pushNamed(context, '/bookDetails'),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width * 0.25,
+              height: MediaQuery.of(context).size.height * 0.18,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(AssetsValues.homeImage, fit: BoxFit.fill),
+              ),
             ),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(AssetsValues.homeImage, fit: BoxFit.fill),
-            ),
-          ),
-          // const Spacer(),
-          const SizedBox(width: 30),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text(
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    'Harry Potter and the Goblet of Fire',
-                    style: AppStyles.textStyle20.copyWith(
-                      fontFamily: kGtSectraFine,
-                    ),
-                  ),
-                ),
-                Text(
-                  'J.K Rowling',
-                  style: AppStyles.textStyle14.copyWith(
-                    color: Colors.grey,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-                Row(
-                  // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      '19.99 £',
+            // const Spacer(),
+            const SizedBox(width: 30),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child: Text(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      'Harry Potter and the Goblet of Fire',
                       style: AppStyles.textStyle20.copyWith(
-                        fontWeight: FontWeight.bold,
+                        fontFamily: kGtSectraFine,
                       ),
                     ),
-                    const Spacer(),
-                    const BookRating(),
-                  ],
-                ),
-              ],
+                  ),
+                  Text(
+                    'J.K Rowling',
+                    style: AppStyles.textStyle14.copyWith(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Text(
+                        '19.99 £',
+                        style: AppStyles.textStyle20.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Spacer(),
+                      const BookRating(),
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       separatorBuilder: (context, index) => const SizedBox(height: 15),
       itemCount: 5,

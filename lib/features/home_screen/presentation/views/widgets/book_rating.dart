@@ -10,6 +10,7 @@ class BookRating extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Icon(
             FontAwesomeIcons.solidStar,
@@ -17,7 +18,7 @@ class BookRating extends StatelessWidget {
             size: 15,
           ),
           const SizedBox(
-            width: 5,
+            width: 10,
           ),
           Text(
             '4.8',
@@ -28,7 +29,7 @@ class BookRating extends StatelessWidget {
           const SizedBox(
             width: 5,
           ),
-           Text(
+          Text(
             '(50)',
             style: AppStyles.textStyle14.copyWith(
               color: const Color(0xff707070),
