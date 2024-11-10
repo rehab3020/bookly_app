@@ -1,9 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:bookly/constants.dart';
 import 'package:bookly/core/utils/assets.dart';
-import 'package:bookly/features/home_screen/presentation/views/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class SplashScreenBody extends StatefulWidget {
@@ -54,11 +51,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody> {
 
   void navigateToHomeScreen() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.to(
-        const HomeScreen(),
-        transition: Transition.fadeIn,
-        duration: kTranstionDuration,
-      );
+      Navigator.pushReplacementNamed(context, '/home');
     });
   }
 

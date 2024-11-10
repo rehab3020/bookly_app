@@ -1,7 +1,6 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/features/splash_screen/presentation/views/splash_screen.dart';
+import 'package:bookly/core/utils/router.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -12,15 +11,13 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      //not the best way
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      onGenerateRoute: AppRouter.onGenerateRoute,
       theme: ThemeData.dark().copyWith(
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
         scaffoldBackgroundColor: kPrimaryColor,
       ),
-      home: const SplashScreen(),
     );
   }
 }
