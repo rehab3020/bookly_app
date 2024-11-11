@@ -11,7 +11,9 @@ class CustomAppBar extends StatelessWidget {
       children: [
         Image.asset(AssetsValues.logo, height: 80, width: 100),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/searchScreen');
+          },
           icon: const Icon(
             Icons.search,
             color: Colors.white,
