@@ -12,6 +12,8 @@ class DetailsScreenListView extends StatelessWidget {
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) => const CustomBookImage(
+            imageUrl:
+                'https://th.bing.com/th/id/OIP.aftZazpbm7dwWGHdUnYzkwHaFl?rs=1&pid=ImgDetMain',
             width: 0.22,
           ),
           separatorBuilder: (context, index) => const SizedBox(width: 10),

@@ -1,9 +1,14 @@
-import 'package:bookly/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
   final double? width;
-  const CustomBookImage({super.key, this.width});
+  final String imageUrl;
+  const CustomBookImage({
+    super.key,
+    this.width,
+    required this.imageUrl,
+    // required this.books,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,14 @@ class CustomBookImage extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
-          child: Image.asset(AssetsValues.homeImage, fit: BoxFit.fill),
+          // child: Image.asset(AssetsValues.homeImage, fit: BoxFit.fill),
+          child: Image.network(
+            imageUrl ,
+            fit: BoxFit.fill,
+            errorBuilder: (context, error, stackTrace) {
+              return const Center(child: Text('Failed to load image'));
+            },
+          ),
         ),
       ),
     );
