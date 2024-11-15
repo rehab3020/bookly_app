@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
@@ -25,12 +26,19 @@ class CustomBookImage extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25),
           // child: Image.asset(AssetsValues.homeImage, fit: BoxFit.fill),
-          child: Image.network(
-            imageUrl ,
+          // child: Image.network(
+          //   imageUrl ,
+          //   fit: BoxFit.fill,
+          //   errorBuilder: (context, error, stackTrace) {
+          //     return const Center(child: Text('Failed to load image'));
+          //   },
+          // ),
+          child: CachedNetworkImage(
+            imageUrl: imageUrl,
             fit: BoxFit.fill,
-            errorBuilder: (context, error, stackTrace) {
-              return const Center(child: Text('Failed to load image'));
-            },
+            errorWidget: (context, url, error) => const Center(
+              child: Text('Failed to load image'),
+            ),
           ),
         ),
       ),

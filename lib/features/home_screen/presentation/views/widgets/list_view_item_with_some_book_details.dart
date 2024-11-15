@@ -1,11 +1,16 @@
 import 'package:bookly/constants.dart';
-import 'package:bookly/core/utils/assets.dart';
 import 'package:bookly/core/utils/style.dart';
+import 'package:bookly/features/home_screen/data/models/book_model.dart';
 import 'package:bookly/features/home_screen/presentation/views/widgets/book_rating.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ListViewItemBookDetails extends StatelessWidget {
-  const ListViewItemBookDetails({super.key});
+  final Item book;
+  const ListViewItemBookDetails({
+    super.key,
+    required this.book,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,10 @@ class ListViewItemBookDetails extends StatelessWidget {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.asset(AssetsValues.homeImage, fit: BoxFit.fill),
+              child: CachedNetworkImage(
+                imageUrl: book.volumeInfo.imageLinks.thumbnail,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           // const Spacer(),
@@ -36,14 +44,14 @@ class ListViewItemBookDetails extends StatelessWidget {
                   child: Text(
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    'Harry Potter and the Goblet of Fire',
+                    book.volumeInfo.title,
                     style: AppStyles.textStyle20.copyWith(
                       fontFamily: kGtSectraFine,
                     ),
                   ),
                 ),
                 Text(
-                  'J.K Rowling',
+                  book.volumeInfo.authors[0],
                   style: AppStyles.textStyle14.copyWith(
                     color: Colors.grey,
                     fontWeight: FontWeight.normal,
@@ -53,13 +61,16 @@ class ListViewItemBookDetails extends StatelessWidget {
                   // mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      '19.99 £',
+                      book.volumeInfo.publishedDate,
                       style: AppStyles.textStyle20.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     const Spacer(),
-                    const BookRating(),
+                    BookRating(
+                      bookRating: book.volumeInfo.averageRating ?? 0.0,
+                      bookRatingCount: book.volumeInfo.ratingsCount ?? 0,
+                    ),
                   ],
                 ),
               ],

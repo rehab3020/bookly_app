@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                         ListViewBody(),
                         SizedBox(height: 50),
                         Text(
-                          'Best Seller',
+                          'Newest Books',
                           style: AppStyles.textStyle18,
                         ),
                         SizedBox(height: 20),
