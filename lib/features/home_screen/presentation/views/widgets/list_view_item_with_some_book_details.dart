@@ -15,7 +15,11 @@ class ListViewItemBookDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/bookDetails'),
+      onTap: () => Navigator.pushNamed(
+        context,
+        '/bookDetails',
+        arguments: book,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

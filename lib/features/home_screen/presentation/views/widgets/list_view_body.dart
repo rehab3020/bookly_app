@@ -18,7 +18,7 @@ class ListViewBody extends StatelessWidget {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => CustomBookImage(
-                imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                book: state.books[index],
               ),
               separatorBuilder: (context, index) => const SizedBox(width: 10),
               itemCount: state.books.length,

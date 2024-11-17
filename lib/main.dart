@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           create: (context) => NewestBooksCubit(
             homeRepo: getIt.get<HomeRepoImpl>(),
           )..fetchNewestBooks(),
-        )
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

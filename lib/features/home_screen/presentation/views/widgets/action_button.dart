@@ -11,7 +11,7 @@ class ActionButton extends StatelessWidget {
       children: [
         Expanded(
           child: CustomButton(
-            title: '19.99\$',
+            title: 'Read Now',
             backgroundColor: Colors.white,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(12),
@@ -22,7 +22,7 @@ class ActionButton extends StatelessWidget {
         ),
         Expanded(
           child: CustomButton(
-            title: 'Free Preview',
+            title: 'Download',
             backgroundColor: const Color(0xffEF8262),
             borderRadius: const BorderRadius.only(
               topRight: Radius.circular(12),

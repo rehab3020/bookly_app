@@ -1,20 +1,23 @@
+import 'package:bookly/features/home_screen/data/models/book_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomBookImage extends StatelessWidget {
+  final Item book;
   final double? width;
-  final String imageUrl;
   const CustomBookImage({
     super.key,
-    this.width,
-    required this.imageUrl,
-    // required this.books,
+    required this.book, this.width,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Navigator.pushNamed(context, '/bookDetails'),
+      onTap: () => Navigator.pushNamed(
+        context,
+        '/bookDetails',
+        arguments: book,
+      ),
       child: Container(
         width: width == null
             ? MediaQuery.of(context).size.width * 0.42
@@ -34,7 +37,7 @@ class CustomBookImage extends StatelessWidget {
           //   },
           // ),
           child: CachedNetworkImage(
-            imageUrl: imageUrl,
+            imageUrl: book.volumeInfo.imageLinks.thumbnail,
             fit: BoxFit.fill,
             errorWidget: (context, url, error) => const Center(
               child: Text('Failed to load image'),
